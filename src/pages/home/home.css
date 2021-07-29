@@ -1,0 +1,11 @@
+.home{
+    flex: 6;
+    height: 100%;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background-color: whitesmoke;
+    font-family: cursive;
+}
