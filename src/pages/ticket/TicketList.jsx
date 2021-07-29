@@ -47,9 +47,9 @@ export default function TicketList() {
           renderCell: (params) => {
               return(
                   <>                   
-                    <Link to={{pathname:"/transaction/ticket/" + params.row._id , ticket:params.row}}>
+                    {/* <Link to={{pathname:"/transaction/ticket/" + params.row._id , ticket:params.row}}> */}
                         <button className="ticketListReport">Report</button>
-                    </Link>
+                    {/* </Link> */}
                     <Link to={{pathname:"ticket/edit/"+params.row._id, ticket:params.row}}>
                         <button className="ticketListEdit">Edit</button>
                     </Link>
