@@ -62,9 +62,7 @@ const TicketReducer = (state,action) =>{
             };
         case "UPDATE_TICKET_SUCCESS":
             return {
-                tickets:state.tickets.map(
-                    (ticket)=>ticket._id === action.payload && action.payload
-                ),
+                tickets:[...state.tickets, action.payload],
                 isFetching:false,
                 error:false,
             };

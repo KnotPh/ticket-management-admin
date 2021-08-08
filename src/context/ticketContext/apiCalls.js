@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createTicketFail, createTicketStart, createTicketSuccess, deleteTicketFail, deleteTicketStart, deleteTicketSuccess, getTicketsFail, getTicketsStart, getTicketsSuccess } from "./TicketAction"
+import { createTicketFail, createTicketStart, createTicketSuccess, deleteTicketFail, deleteTicketStart, deleteTicketSuccess, getTicketsFail, getTicketsStart, getTicketsSuccess, updateTicketFail, updateTicketStart, updateTicketSuccess } from "./TicketAction"
 
 export const getTickets = async (dispatch) => {
     dispatch(getTicketsStart());
@@ -37,5 +37,18 @@ export const createTicket = async (ticket,dispatch) => {
           dispatch(createTicketSuccess(res.data))
     } catch (error) {
         dispatch(createTicketFail())
+    }
+}
+
+export const updateTicket = async (id,user,dispatch) => {
+    dispatch(updateTicketStart());
+    try {
+        const res = await axios.put("/ticket/"+id, user,{
+            headers:{
+              token:"Bearer " + JSON.parse(localStorage.getItem("user")).accessToken},
+          });
+          dispatch(updateTicketSuccess(res.data))
+    } catch (error) {
+        dispatch(updateTicketFail())
     }
 }

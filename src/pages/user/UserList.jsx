@@ -49,6 +49,13 @@ export default function UserList() {
           field: 'isActive',
           headerName: 'Status',
           width: 130,
+          renderCell: (params) => {
+            if(params.row.isActive === true){
+                return <><button className="userStatusActive">Active</button></>;
+            }else {
+                return <><button className="userStatusInactive">Inactive</button></>;
+            }
+          }
         },
         {
           field: 'action',

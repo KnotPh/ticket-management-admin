@@ -17,16 +17,16 @@ export default function TicketList() {
       deleteTicket(id,dispatch);
     };
     const columns = [
-        { field: '_id', headerName: 'ID', width: 250 },
+        { field: '_id', headerName: 'ID', width: 190 },
         {
           field: 'ticketType',
           headerName: 'Ticket Type',
-          width: 150,
+          width: 130,
         },
         {
           field: 'price',
           headerName: 'Price',
-          width: 130,
+          width: 110,
         },
         {
           field: 'amountLimitPerDay',
@@ -35,9 +35,22 @@ export default function TicketList() {
           width: 210,
         },
         {
+          field: 'minimumBuying',
+          headerName: 'Minimum Buying',
+          type: 'number',
+          width: 200,
+        },
+        {
           field: 'isActive',
-          headerName: 'Status Active',
-          width: 180,
+          headerName: 'Status',
+          width: 130,
+          renderCell: (params) => {
+            if(params.row.isActive === true){
+                return <><button className="ticketStatusActive">Active</button></>;
+            }else {
+                return <><button className="ticketStatusInactive">Inactive</button></>;
+            }
+          }
         },
         {
           field: 'action',
@@ -47,9 +60,9 @@ export default function TicketList() {
           renderCell: (params) => {
               return(
                   <>                   
-                    {/* <Link to={{pathname:"/transaction/ticket/" + params.row._id , ticket:params.row}}> */}
+                    <Link to={{pathname:"/transaction/ticket/" + params.row._id , ticket:params.row}}>
                         <button className="ticketListReport">Report</button>
-                    {/* </Link> */}
+                    </Link>
                     <Link to={{pathname:"ticket/edit/"+params.row._id, ticket:params.row}}>
                         <button className="ticketListEdit">Edit</button>
                     </Link>

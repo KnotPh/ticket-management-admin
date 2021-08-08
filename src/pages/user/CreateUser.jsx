@@ -18,6 +18,7 @@ export default function CreateUser() {
     }
     const handleSubmit = async(e)=>{
         e.preventDefault();
+        console.log(user)
         createUser(user,dispatch);
         history.push("/users");
     }
@@ -44,13 +45,6 @@ export default function CreateUser() {
                 <div className="createUserItem">
                     <label>Age</label>
                     <input type="number" min='0' id="age" name="age" onChange={handleChange}/>
-                </div>
-                <div className="createUserItem">
-                    <label>Active</label>
-                    <select name="isActive" id="is_active" defaultValue={true} onChange={handleChange}>
-                     <option value="true">Yes</option>
-                     <option value="false">NO</option>
-                    </select>
                 </div>
                 <button className="createUserButton"  onClick={handleSubmit}>Create</button>
         </div>
