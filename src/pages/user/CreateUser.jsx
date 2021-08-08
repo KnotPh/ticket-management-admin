@@ -18,7 +18,6 @@ export default function CreateUser() {
     }
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        console.log(user)
         createUser(user,dispatch);
         history.push("/users");
     }
